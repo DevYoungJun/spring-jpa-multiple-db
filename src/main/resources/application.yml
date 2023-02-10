@@ -1,0 +1,43 @@
+# Server
+server:
+  port: 4000
+  servlet:
+    contextPath: '/api/v1'
+  error:
+    include-stacktrace: never
+    path: '/error'
+
+# Spring
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306
+    username: root
+    password: 1234
+  second-datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306
+    username: root
+    password: 1234
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# Logging
+logging:
+  level:
+    org.springframework: ERROR
+    jdbc:
+      sqlonly: OFF
+
+# App
+app:
+  allow-origins: localhost
+  auth:
+    header-name: Authorization
+    secret-key: please_set_a_secretkey
